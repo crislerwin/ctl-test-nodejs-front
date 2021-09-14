@@ -7,7 +7,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: ${({theme})=> theme.colors.background};
-    font: Roboto, sans-serif;
+    background: none;
+    font-family:  'Roboto';
   }
 `
