@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://127.0.0.1:3004',
+  baseURL: 'http://learn.eastus2.cloudapp.azure.com:8000',
 });

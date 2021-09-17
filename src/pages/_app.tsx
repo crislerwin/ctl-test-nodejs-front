@@ -1,11 +1,12 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
-import theme from './styles/theme/theme'
 import GlobalStyle from './styles/globals'
+import 'antd/dist/antd.css'
+import { light } from '../theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={light}>
       <Component {...pageProps} />
       <GlobalStyle />
     </ThemeProvider>
