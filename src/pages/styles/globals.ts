@@ -7,7 +7,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: none;
-    font-family:  'Roboto';
+    background: #fff;
+    font-family:  'Roboto', sans-serif;
   }
 `

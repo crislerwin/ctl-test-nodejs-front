@@ -3,10 +3,10 @@ import { DefaultTheme } from "styled-components"
 export const light: DefaultTheme = {
   title: "light",
   colors: {
-    primary: '#ff5200',
-    secondary: '#fff',
-    background: '#222',
-    text: '#fff'
+    primary: '#ffF',
+    secondary: '#f',
+    background: '#f7f7f7',
+    text: '#1A237A'
   
   }
 }
