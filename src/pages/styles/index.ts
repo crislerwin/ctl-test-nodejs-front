@@ -23,6 +23,7 @@ const HeaderTitle = styled.h1`
 const FormContainer = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
   
 `
 
@@ -80,7 +81,7 @@ const AdressContainer = styled.div`
   flex-direction: column;
   margin-left: 20px;	
 `
-export {
+export  {
 FormContainer,
   Container,
   StyledInput,

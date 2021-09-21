@@ -2,10 +2,14 @@ import { Container, Header, Title, HeaderTitle, FormContainer } from './styles'
 import { Checkbox, Select, Space, Form, Input, Button } from 'antd'
 import { languages, countries } from '../utils/data'
 import { useTheme } from 'styled-components'
+import { api } from '../services/api'
 const Home: React.FC = () => {
   const theme = useTheme()
   const onFinish = (values: any) => {
-    console.log('Success:', values)
+    api.post('/register', values).then((res) => {
+      console.log(res);
+      window.alert('Dados enviados com Sucesso');
+    })
   }
 
   const onFinishFailed = (errorInfo: any) => {
@@ -19,33 +23,38 @@ const Home: React.FC = () => {
       <Container>
         <Form
           name="basic"
-          layout="horizontal"
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <FormContainer>
-            <div >
-            <Title>Contact Information:</Title>
-              <Space direction="vertical" >
-              
-                <Form.Item name="username">
-                  <Input
-                    placeholder="First Name"
-                    type="text"
-                    style={{ marginLeft: 20 }}
-                  />
+            <div style={{ marginLeft: 20 }}>
+              <Title>Contact Information:</Title>
+              <Space direction="vertical" style={{ width: 240 }}>
+                <Form.Item
+                  name="firstname"
+                  rules={[
+                    { required: true, message: 'Please input your firstname!' }
+                  ]}
+                >
+                  <Input placeholder="First Name" />
                 </Form.Item>
-                <Form.Item>
-                  <Input
-                    placeholder="Email Adress"
-                    type="text"
-                    style={{ marginLeft: 20 }}
-                  />
+                <Form.Item
+                  name="email"
+                  rules={[
+                    { required: true, message: 'Please input your email' }
+                  ]}
+                >
+                  <Input placeholder="Email Adress" type="text" />
                 </Form.Item>
-                <Form.Item>
-                  <Select placeholder="Languages" style={{ marginLeft: 20 }}>
+                <Form.Item
+                  name="languages"
+                  rules={[
+                    { required: true, message: 'Please input your languages' }
+                  ]}
+                >
+                  <Select placeholder="Languages">
                     {languages.map((language) => (
                       <Select.Option key={language.id} value={language.value}>
                         {language.label}
@@ -54,15 +63,36 @@ const Home: React.FC = () => {
                   </Select>
                 </Form.Item>
               </Space>
-              <Space direction="vertical" style={{ marginLeft: 40 }}>
-                <Form.Item>
+              <Space
+                direction="vertical"
+                style={{ marginLeft: 40, width: 240 }}
+              >
+                <Form.Item
+                  name="lastname"
+                  rules={[
+                    { required: true, message: 'Please input your lastname!' }
+                  ]}
+                >
                   <Input placeholder="Last Name" />
                 </Form.Item>
-                <Form.Item>
+                <Form.Item
+                  name="phone"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your phone number!'
+                    }
+                  ]}
+                >
                   <Input placeholder="Phone" />
                 </Form.Item>
-                <Form.Item>
-                  <Select placeholder="Country" style={{ width: 300 }}>
+                <Form.Item
+                  name="country"
+                  rules={[
+                    { required: true, message: 'Please input your country!' }
+                  ]}
+                >
+                  <Select placeholder="Country">
                     {countries.map((region) => (
                       <Select.Option key={region.id} value={region.value}>
                         {region.label}
@@ -74,20 +104,37 @@ const Home: React.FC = () => {
             </div>
 
             <div style={{ marginLeft: 140 }}>
-            <Title>Shipping Adress:</Title>
+              <Title>Shipping Adress:</Title>
               <Space
                 direction="vertical"
-                style={{ width: 600 }}
+                style={{ width: 600, marginRight: 30 }}
               >
-               
-                <Form.Item>
+                <Form.Item
+                  name="adress1"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your firstadress!'
+                    }
+                  ]}
+                >
                   <Input placeholder="Adress Line 1" />
                 </Form.Item>
-                <Form.Item>
+                <Form.Item
+                  name="adress2"
+                  rules={[
+                    { required: true, message: 'Please input your complement' }
+                  ]}
+                >
                   <Input placeholder="Adress Line 2" />
                 </Form.Item>
                 <Space direction="horizontal">
-                  <Form.Item>
+                  <Form.Item
+                    name="city"
+                    rules={[
+                      { required: true, message: 'Please select your city' }
+                    ]}
+                  >
                     <Select placeholder="City" style={{ width: 180 }}>
                       {countries.map((region) => (
                         <Select.Option key={region.id} value={region.value}>
@@ -96,7 +143,12 @@ const Home: React.FC = () => {
                       ))}
                     </Select>
                   </Form.Item>
-                  <Form.Item>
+                  <Form.Item
+                    name="state"
+                    rules={[
+                      { required: true, message: 'Please input your state' }
+                    ]}
+                  >
                     <Select placeholder="State" style={{ width: 200 }}>
                       {countries.map((region) => (
                         <Select.Option key={region.id} value={region.value}>
@@ -105,7 +157,15 @@ const Home: React.FC = () => {
                       ))}
                     </Select>
                   </Form.Item>
-                  <Form.Item>
+                  <Form.Item
+                    name="zipcode"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your select your zipcode'
+                      }
+                    ]}
+                  >
                     <Select placeholder="ZIP Code" style={{ width: 200 }}>
                       {countries.map((region) => (
                         <Select.Option key={region.id} value={region.value}>
@@ -123,16 +183,37 @@ const Home: React.FC = () => {
               <Title>Billing Adress:</Title>
               <Space
                 direction="vertical"
-                style={{ marginLeft: 20, width: 620 }}
+                style={{ marginLeft: 20, width: 600 }}
               >
-                <Form.Item>
+                <Form.Item
+                  name="b_adress1"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your select your firstadress!'
+                    }
+                  ]}
+                >
                   <Input placeholder="Adress Line 1" />
                 </Form.Item>
-                <Form.Item>
+                <Form.Item
+                  name="b_adress2"
+                  rules={[
+                    { required: true, message: 'Please complete your address' }
+                  ]}
+                >
                   <Input placeholder="Adress Line 2" />
                 </Form.Item>
                 <Space direction="horizontal">
-                  <Form.Item>
+                  <Form.Item
+                    name="b_city"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your select your city'
+                      }
+                    ]}
+                  >
                     <Select placeholder="City" style={{ width: 180 }}>
                       {countries.map((region) => (
                         <Select.Option key={region.id} value={region.value}>
@@ -141,7 +222,15 @@ const Home: React.FC = () => {
                       ))}
                     </Select>
                   </Form.Item>
-                  <Form.Item>
+                  <Form.Item
+                    name="b_state"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your select your state'
+                      }
+                    ]}
+                  >
                     <Select placeholder="State" style={{ width: 200 }}>
                       {countries.map((region) => (
                         <Select.Option key={region.id} value={region.value}>
@@ -150,7 +239,15 @@ const Home: React.FC = () => {
                       ))}
                     </Select>
                   </Form.Item>
-                  <Form.Item>
+                  <Form.Item
+                    name="b_zipcode"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your select your zipcode'
+                      }
+                    ]}
+                  >
                     <Select placeholder="ZIP Code" style={{ width: 200 }}>
                       {countries.map((region) => (
                         <Select.Option key={region.id} value={region.value}>
@@ -161,7 +258,7 @@ const Home: React.FC = () => {
                   </Form.Item>
                 </Space>
 
-                <Form.Item>
+                <Form.Item name="usesmbillingadress?" valuePropName="checked">
                   <Checkbox>
                     Use shipping address as same as billing address
                   </Checkbox>
@@ -183,25 +280,30 @@ const Home: React.FC = () => {
                   justifyContent: 'space-between'
                 }}
               >
-                <Form.Item>
+                <Form.Item name="fuelcut?" valuePropName="checked">
                   <Checkbox>
                     Does any veihicle need to be equiped with a fuel cut off
                     device?
                   </Checkbox>
                 </Form.Item>
-                <Form.Item>
+                <Form.Item name="trackers?" valuePropName="checked">
                   <Checkbox>
                     Will any trackers t be installed on a bike, truck or
                     machinery?
                   </Checkbox>
                 </Form.Item>
               </div>
-              <Form.Item>
+              <Form.Item name="identify?" valuePropName="checked">
                 <Checkbox>
                   Will you need to identify the fleet drivers?
                 </Checkbox>
               </Form.Item>
-              <Form.Item>
+              <Form.Item
+                name="purchaseTrackers"
+                rules={[
+                  { required: true, message: 'Please input your trackers' }
+                ]}
+              >
                 <Input
                   placeholder="How many trackers would you like to purchase?"
                   type="number"
@@ -210,12 +312,11 @@ const Home: React.FC = () => {
               </Form.Item>
               <Button
                 style={{
-                  width: 400,
+                  width: 620,
                   height: 50,
                   borderRadius: 5,
                   backgroundColor: theme.colors.text
                 }}
-                size="small"
                 type="primary"
                 htmlType="submit"
               >
