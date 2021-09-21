@@ -1,4 +1,4 @@
-import { Container, Header, Title, HeaderTitle, FormContainer } from './styles'
+import styled from 'styled-components';	
 import { Checkbox, Select, Space, Form, Input, Button } from 'antd'
 import { languages, countries } from '../utils/data'
 import { useTheme } from 'styled-components'
@@ -104,11 +104,13 @@ const Home: React.FC = () => {
             </div>
 
             <div style={{ marginLeft: 140 }}>
-              <Title>Shipping Adress:</Title>
+            <Title>Shipping Adress:</Title>
               <Space
                 direction="vertical"
-                style={{ width: 600, marginRight: 30 }}
+                style={{ width: 600 
+                }}
               >
+                
                 <Form.Item
                   name="adress1"
                   rules={[
@@ -162,17 +164,11 @@ const Home: React.FC = () => {
                     rules={[
                       {
                         required: true,
-                        message: 'Please input your select your zipcode'
+                        message: 'Please select your zipcode'
                       }
                     ]}
                   >
-                    <Select placeholder="ZIP Code" style={{ width: 200 }}>
-                      {countries.map((region) => (
-                        <Select.Option key={region.id} value={region.value}>
-                          {region.label}
-                        </Select.Option>
-                      ))}
-                    </Select>
+                    <Input placeholder="ZIP Code" />
                   </Form.Item>
                 </Space>
               </Space>
@@ -244,17 +240,11 @@ const Home: React.FC = () => {
                     rules={[
                       {
                         required: true,
-                        message: 'Please input your select your zipcode'
+                        message: 'Please input your zipcode'
                       }
                     ]}
                   >
-                    <Select placeholder="ZIP Code" style={{ width: 200 }}>
-                      {countries.map((region) => (
-                        <Select.Option key={region.id} value={region.value}>
-                          {region.label}
-                        </Select.Option>
-                      ))}
-                    </Select>
+                  <Input placeholder="ZIP Code" />
                   </Form.Item>
                 </Space>
 
@@ -310,18 +300,15 @@ const Home: React.FC = () => {
                   style={{ width: 620, marginTop: 4 }}
                 />
               </Form.Item>
-              <Button
-                style={{
-                  width: 620,
-                  height: 50,
-                  borderRadius: 5,
-                  backgroundColor: theme.colors.text
-                }}
+              <ButtonContainer>
+              <SubmitButton
+               
                 type="primary"
                 htmlType="submit"
               >
                 Order Now
-              </Button>
+              </SubmitButton>
+              </ButtonContainer>
             </div>
           </FormContainer>
         </Form>
@@ -330,4 +317,52 @@ const Home: React.FC = () => {
   )
 }
 
+
+
 export default Home
+const SubmitButton = styled(Button)`
+width: 300px;
+height: 50px;
+border-radius: 5px;
+
+background-color: ${(props) => props.theme.colors.text};
+`;
+const ButtonContainer = styled.div`
+margin-left: 320px;
+margin-top: 20px;
+`;
+
+const Container = styled.div`
+ display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: ${p => p.theme.colors.background};
+ 
+`;
+ const Header = styled.div`
+  background-color: #fff;
+  padding: 10px;
+`
+
+ const HeaderTitle = styled.h1`
+  color: ${(props) => props.theme.colors.text};
+  margin-left: 20px;
+  font-size: 24px;
+  font-weight: 600;
+`
+
+ const FormContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  
+`
+
+ const Title = styled.h1`
+  color: ${(props) => props.theme.colors.text};
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 20px;
+  margin-top: 20px;
+`
+
