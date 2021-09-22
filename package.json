@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server --watch src/db/db.json --port 3004"
+    "server": "json-server --watch src/db/db.json --routes src/db/routes.json --port 3004"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.4",
