@@ -93,7 +93,7 @@ export const BillingForm: React.FC = () => {
       </Container>
 
       <Container>
-        <Space direction="vertical" size="small" style={{ marginLeft: '4rem' }}>
+        <Space direction="vertical" size="small">
           <Title>Check the boxes below:</Title>
           <Form.Item name="fuelcut?" valuePropName="checked">
             <Checkbox>
