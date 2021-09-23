@@ -5,8 +5,10 @@ import 'antd/dist/antd.css'
 import { light } from '../theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  
   return (
     <ThemeProvider theme={light}>
+
       <Component {...pageProps} />
       <GlobalStyle />
     </ThemeProvider>

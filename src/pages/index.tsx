@@ -2,8 +2,9 @@ import { Form } from 'antd'
 import { ContactForm } from '../components/ContactForm'
 import { api } from '../services/api'
 import { BillingForm } from '../components/BillingForm'
-import { Header } from '../components/Header'
-import  { Container } from './styles/globals'
+import { PageHeader } from 'antd'
+import { HeaderLogo } from '../components/HeaderLogo'
+
 const Home: React.FC = () => {
   const onFinish = (values: any) => {
     api.post('/register', values).then((res) => {
@@ -17,22 +18,24 @@ const Home: React.FC = () => {
   }
   return (
     <>
-     <Header title="Contele" />
-      <Container>
-        <Form
-          name="basic"
-          initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-        >
-          <ContactForm />
-          <BillingForm />
-        </Form>
-      </Container>
+      <PageHeader
+        className="site-page-header"
+        title={<HeaderLogo />}
+        style={{ background: '#fff', color: 'blue' }}
+      />
+      ,
+      <Form
+        name="basic"
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <ContactForm />
+        <BillingForm />
+      </Form>
     </>
   )
 }
 
 export default Home
-

@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import  { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
   * {
@@ -10,14 +10,10 @@ export default createGlobalStyle`
     background: #fff;
     font-family:  'Roboto', sans-serif;
     background-color: ${(p) => p.theme.colors.background};
+  
   }
 `
-const Container = styled.div`
- display: fixed;
-  width: 100%;
-  height: 100%;
-`
 
 
 
-export { Container }
+

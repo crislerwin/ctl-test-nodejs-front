@@ -1,18 +1,22 @@
 import { Checkbox, Select, Space, Form, Input } from 'antd'
 import React from 'react'
-import { countries } from '../../utils/data'
-import { ButtonContainer, FormContainer, SubmitButton, Title, Container, PurchaseInput} from './styles'
+import { countries } from '../../utils/select'
+import {
+  FormContainer,
+  SubmitButton,
+  Title,
+  Container,
+  PurchaseInput
+} from './styles'
 
 export const BillingForm: React.FC = () => {
   return (
     <FormContainer>
-
-       <Container>
-
-       <Title>Billing Adress:</Title>
-        <Space direction="vertical" >
+      <Container>
+        <Space direction="vertical" size="small">
+          <Title>Billing Adress:</Title>
           <Form.Item
-          style={{ width: '28rem' }}
+            style={{ width: '28rem' }}
             name="b_adress1"
             rules={[
               {
@@ -33,7 +37,7 @@ export const BillingForm: React.FC = () => {
           </Form.Item>
           <Space direction="horizontal">
             <Form.Item
-            style={{ width: '9rem' }}
+              style={{ width: '9rem' }}
               name="b_city"
               rules={[
                 {
@@ -42,7 +46,7 @@ export const BillingForm: React.FC = () => {
                 }
               ]}
             >
-              <Select placeholder="City" >
+              <Select placeholder="City">
                 {countries.map((region) => (
                   <Select.Option key={region.id} value={region.value}>
                     {region.label}
@@ -51,7 +55,7 @@ export const BillingForm: React.FC = () => {
               </Select>
             </Form.Item>
             <Form.Item
-            style={{ width: '9rem'}}
+              style={{ width: '9rem' }}
               name="b_state"
               rules={[
                 {
@@ -60,7 +64,7 @@ export const BillingForm: React.FC = () => {
                 }
               ]}
             >
-              <Select placeholder="State" >
+              <Select placeholder="State">
                 {countries.map((region) => (
                   <Select.Option key={region.id} value={region.value}>
                     {region.label}
@@ -70,7 +74,7 @@ export const BillingForm: React.FC = () => {
             </Form.Item>
             <Form.Item
               name="b_zipcode"
-              style={{ width: '9rem'}}
+              style={{ width: '9rem' }}
               rules={[
                 {
                   required: true,
@@ -78,7 +82,7 @@ export const BillingForm: React.FC = () => {
                 }
               ]}
             >
-              <Input placeholder="ZIP Code"  />
+              <Input placeholder="ZIP Code" />
             </Form.Item>
           </Space>
 
@@ -86,15 +90,11 @@ export const BillingForm: React.FC = () => {
             <Checkbox>Use shipping address as same as billing address</Checkbox>
           </Form.Item>
         </Space>
-      
-     
-       </Container>
-      
-        <Container
-       
-        >
+      </Container>
+
+      <Container>
+        <Space direction="vertical" size="small" style={{ marginLeft: '4rem' }}>
           <Title>Check the boxes below:</Title>
-        
           <Form.Item name="fuelcut?" valuePropName="checked">
             <Checkbox>
               Does any veihicle need to be equiped with a fuel cut off device?
@@ -105,31 +105,25 @@ export const BillingForm: React.FC = () => {
               Will any trackers to be installed on a bike, truck or machinery?
             </Checkbox>
           </Form.Item>
-          
+
           <Form.Item name="identify?" valuePropName="checked">
-          <Checkbox>Will you need to identify the fleet drivers?</Checkbox>
-        </Form.Item>
-        <Form.Item
-          name="purchaseTrackers"
-          rules={[{ required: true, message: 'Please input your trackers' }]}
-        >
-          <PurchaseInput
-            placeholder="How many trackers would you like to purchase?"
-            type="number"
-           
-          />
-        </Form.Item>
-        <ButtonContainer>
+            <Checkbox>Will you need to identify the fleet drivers?</Checkbox>
+          </Form.Item>
+          <Form.Item
+            name="purchaseTrackers"
+            rules={[{ required: true, message: 'Please input your trackers' }]}
+          >
+            <PurchaseInput
+              placeholder="How many trackers would you like to purchase?"
+              type="number"
+            />
+          </Form.Item>
+
           <SubmitButton type="primary" htmlType="submit">
             Order Now
           </SubmitButton>
-        </ButtonContainer>
-        </Container>
-       
-        
-      
+        </Space>
+      </Container>
     </FormContainer>
-
-    
   )
 }

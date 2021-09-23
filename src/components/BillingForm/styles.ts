@@ -9,19 +9,17 @@ const SubmitButton = styled(Button)`
   background-color: ${(props) => props.theme.colors.text};
 `
 const PurchaseInput = styled(Input)`
-width: 31rem;
+  width: 31rem;
 `
 const ButtonContainer = styled.div`
-  margin:  auto;
- 
+  margin: auto;
 `
 
 const FormContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
-
+  margin: auto;
 `
 
 const Title = styled.h1`
@@ -30,13 +28,18 @@ const Title = styled.h1`
   font-weight: 600;
 `
 const Container = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-left: 2rem;
 `
 
-
-
-
-export { ButtonContainer, FormContainer, SubmitButton, Title, Container, PurchaseInput }
+export {
+  ButtonContainer,
+  FormContainer,
+  SubmitButton,
+  Title,
+  Container,
+  PurchaseInput
+}
