@@ -1,10 +1,10 @@
 import { PageHeader, Card, Col, Row } from 'antd'
-import { HeaderLogo } from '../../components/HeaderLogo'
-import { Container,  Title, Paragraph} from './styles'
+import { HeaderLogo } from '../components/HeaderLogo'
+import styled from "styled-components";
 
 import router from 'next/router'
-import { UserData } from '../../interfaces/userData'
-import { useFetch } from '../../hooks/useFetch'
+import { UserData } from '../interfaces/userData'
+import { useFetch } from '../hooks/useFetch'
 import React from 'react'
 
 const Sucess: React.FC = () => {
@@ -80,3 +80,28 @@ const Sucess: React.FC = () => {
        }
  
 export default Sucess
+
+
+
+
+const Container = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+flex-wrap: wrap;
+margin: 0 auto;
+`;
+
+const Title = styled.h1`
+color: ${p => p.theme.colors.text};
+font-size: 14px;
+font-weight: 700;
+
+
+`;
+const Paragraph = styled.p`
+color: black;
+font-size: 14px;
+font-weight: 400;
+
+`;

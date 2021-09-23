@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       window.alert(
         `${values.first_name} ${values.last_name} your data has been registered successfully`
       )
-      router.push('/Sucess')
+      router.push('/dashboard')
     })
   }
 
