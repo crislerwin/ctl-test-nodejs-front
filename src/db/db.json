@@ -94,6 +94,30 @@
       "identify_fleet_drivers": false,
       "tracker_quantity": "5",
       "id": 4
+    },
+    {
+      "first_name": "Crisler",
+      "last_name": "Saulo",
+      "email": "crisler@sauro.com",
+      "phone_number": "32323",
+      "language": "en",
+      "country": "us",
+      "first_adress": "Vlabas 2323",
+      "second_adress": "Vlsrorse",
+      "city": "us",
+      "state": "us",
+      "zip_code": "32323",
+      "primary_billing_adress": "Av. Vlabasds",
+      "second_billing_adress": "32323 Vlabas",
+      "billing_city": "us",
+      "billing_state": "us",
+      "billing_zip_code": "232323",
+      "same_shipping_adress": true,
+      "fcut_device": true,
+      "other_installed_trackers": true,
+      "identify_fleet_drivers": true,
+      "tracker_quantity": "10",
+      "id": 5
     }
   ]
 }
