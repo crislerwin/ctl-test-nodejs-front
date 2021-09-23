@@ -1,4 +1,4 @@
-# Junior Full Stack Developer Test
+# Junior Developer Test
 
 ### This is a project for became a full stack junior developer at **Contele**.
 
