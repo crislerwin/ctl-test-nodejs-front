@@ -12,17 +12,16 @@ const PurchaseInput = styled(Input)`
 width: 31rem;
 `
 const ButtonContainer = styled.div`
-  margin: 0 auto;
+  margin:  auto;
  
 `
 
 const FormContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
   flex-wrap: wrap;
-  margin: 0 20px;
-  
+
+
 `
 
 const Title = styled.h1`
@@ -33,7 +32,8 @@ const Title = styled.h1`
 const Container = styled.div`
 display: flex;
 flex-direction: column;
-
+justify-content: space-between;
+margin: 0 auto;
 `
 
 

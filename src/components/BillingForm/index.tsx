@@ -91,9 +91,7 @@ export const BillingForm: React.FC = () => {
        </Container>
       
         <Container
-        style={{
-          marginLeft: '16rem'
-        }}
+       
         >
           <Title>Check the boxes below:</Title>
         
@@ -131,5 +129,7 @@ export const BillingForm: React.FC = () => {
         
       
     </FormContainer>
+
+    
   )
 }

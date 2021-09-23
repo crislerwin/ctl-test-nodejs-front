@@ -78,9 +78,10 @@ export const ContactForm: React.FC = () => {
         </Space>
       </Container>
 
-      <Container style={{marginTop: 6, marginLeft: '5rem'}}>
-        <Title>Shipping Adress:</Title>
+      <Container >
+    
         <Space direction="vertical" >
+        <Title>Shipping Adress:</Title>
           <Form.Item
           style={{ width: '31rem' }}
             name="first_adress"

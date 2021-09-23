@@ -14,9 +14,8 @@ export default createGlobalStyle`
 `
 const Container = styled.div`
  display: fixed;
-
-  
-
+  width: 100%;
+  height: 100%;
 `
 
 
