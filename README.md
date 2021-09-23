@@ -1,6 +1,6 @@
-# Junior Full Stack Developer Test
+# Junior Developer Test
 
-### This is a project for became a full stack junior developer at **Contele**.
+### This is a project to became a junior developer at **Contele**.
 
 ## Technologies used
 - Next.js
