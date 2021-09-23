@@ -47,9 +47,9 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
         </Space>
 
-        <Space direction="horizontal" size="large">
+        <Space direction="horizontal" size="large" >
           <Form.Item
-            style={{ width: 290 }}
+            style={{ width: '18rem' }}
             name="languages"
             rules={[{ required: true, message: 'Please input your languages' }]}
           >
@@ -63,7 +63,7 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
 
           <Form.Item
-            style={{ width: 290 }}
+            style={{ width: '18rem' }}
             name="country"
             rules={[{ required: true, message: 'Please input your country!' }]}
           >
@@ -78,10 +78,11 @@ export const ContactForm: React.FC = () => {
         </Space>
       </Container>
 
-      <Container>
+      <Container style={{marginTop: 6, marginLeft: '5rem'}}>
         <Title>Shipping Adress:</Title>
-        <Space direction="vertical" style={{ width: 600 }}>
+        <Space direction="vertical" >
           <Form.Item
+          style={{ width: '31rem' }}
             name="first_adress"
             rules={[
               {
@@ -93,6 +94,7 @@ export const ContactForm: React.FC = () => {
             <Input placeholder="Adress Line 1" />
           </Form.Item>
           <Form.Item
+          style={{ width: '31rem' }}
             name="complement_adress"
             rules={[
               { required: true, message: 'Please input your complement' }
@@ -102,10 +104,11 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
           <Space direction="horizontal">
             <Form.Item
+             style={{ width: '10rem' }}
               name="city"
               rules={[{ required: true, message: 'Please select your city' }]}
             >
-              <Select placeholder="City" style={{ width: 180 }}>
+              <Select placeholder="City">
                 {countries.map((region) => (
                   <Select.Option key={region.id} value={region.value}>
                     {region.label}
@@ -114,10 +117,11 @@ export const ContactForm: React.FC = () => {
               </Select>
             </Form.Item>
             <Form.Item
+             style={{ width: '10rem' }}
               name="state"
               rules={[{ required: true, message: 'Please input your state' }]}
             >
-              <Select placeholder="State" style={{ width: 240 }}>
+              <Select placeholder="State" >
                 {countries.map((region) => (
                   <Select.Option key={region.id} value={region.value}>
                     {region.label}
@@ -126,6 +130,7 @@ export const ContactForm: React.FC = () => {
               </Select>
             </Form.Item>
             <Form.Item
+             style={{ width: '10rem' }}
               name="zip_code"
               rules={[
                 {

@@ -1,14 +1,18 @@
 import { Checkbox, Select, Space, Form, Input } from 'antd'
+import React from 'react'
 import { countries } from '../../utils/data'
 import { ButtonContainer, FormContainer, SubmitButton, Title, Container, PurchaseInput} from './styles'
 
 export const BillingForm: React.FC = () => {
   return (
     <FormContainer>
-      <div>
-        <Title>Billing Adress:</Title>
-        <Space direction="vertical" style={{ marginLeft: 20, width: 600 }}>
+
+       <Container>
+
+       <Title>Billing Adress:</Title>
+        <Space direction="vertical" >
           <Form.Item
+          style={{ width: '28rem' }}
             name="b_adress1"
             rules={[
               {
@@ -29,6 +33,7 @@ export const BillingForm: React.FC = () => {
           </Form.Item>
           <Space direction="horizontal">
             <Form.Item
+            style={{ width: '9rem' }}
               name="b_city"
               rules={[
                 {
@@ -37,7 +42,7 @@ export const BillingForm: React.FC = () => {
                 }
               ]}
             >
-              <Select placeholder="City" style={{ width: 200 }}>
+              <Select placeholder="City" >
                 {countries.map((region) => (
                   <Select.Option key={region.id} value={region.value}>
                     {region.label}
@@ -46,6 +51,7 @@ export const BillingForm: React.FC = () => {
               </Select>
             </Form.Item>
             <Form.Item
+            style={{ width: '9rem'}}
               name="b_state"
               rules={[
                 {
@@ -54,7 +60,7 @@ export const BillingForm: React.FC = () => {
                 }
               ]}
             >
-              <Select placeholder="State" style={{ width: 200 }}>
+              <Select placeholder="State" >
                 {countries.map((region) => (
                   <Select.Option key={region.id} value={region.value}>
                     {region.label}
@@ -64,6 +70,7 @@ export const BillingForm: React.FC = () => {
             </Form.Item>
             <Form.Item
               name="b_zipcode"
+              style={{ width: '9rem'}}
               rules={[
                 {
                   required: true,
@@ -71,7 +78,7 @@ export const BillingForm: React.FC = () => {
                 }
               ]}
             >
-              <Input placeholder="ZIP Code" />
+              <Input placeholder="ZIP Code"  />
             </Form.Item>
           </Space>
 
@@ -79,18 +86,17 @@ export const BillingForm: React.FC = () => {
             <Checkbox>Use shipping address as same as billing address</Checkbox>
           </Form.Item>
         </Space>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          marginLeft: 40
-        }}
-      >
-        <Title>Check the boxes below:</Title>
+      
+     
+       </Container>
+      
         <Container
-          
+        style={{
+          marginLeft: '16rem'
+        }}
         >
+          <Title>Check the boxes below:</Title>
+        
           <Form.Item name="fuelcut?" valuePropName="checked">
             <Checkbox>
               Does any veihicle need to be equiped with a fuel cut off device?
@@ -101,8 +107,8 @@ export const BillingForm: React.FC = () => {
               Will any trackers to be installed on a bike, truck or machinery?
             </Checkbox>
           </Form.Item>
-        </Container>
-        <Form.Item name="identify?" valuePropName="checked">
+          
+          <Form.Item name="identify?" valuePropName="checked">
           <Checkbox>Will you need to identify the fleet drivers?</Checkbox>
         </Form.Item>
         <Form.Item
@@ -120,7 +126,10 @@ export const BillingForm: React.FC = () => {
             Order Now
           </SubmitButton>
         </ButtonContainer>
-      </div>
+        </Container>
+       
+        
+      
     </FormContainer>
   )
 }

@@ -9,26 +9,16 @@ export default createGlobalStyle`
   body {
     background: #fff;
     font-family:  'Roboto', sans-serif;
+    background-color: ${(p) => p.theme.colors.background};
   }
 `
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: ${(p) => p.theme.colors.background};
-`
+ display: fixed;
 
-const Header = styled.div`
-  background-color: #fff;
-  padding: 10px;
-`
+  
 
-const HeaderTitle = styled.h1`
-  color: ${(props) => props.theme.colors.text};
-  margin-left: 20px;
-  font-size: 24px;
-  font-weight: 600;
 `
 
 
-export { Container, Header, HeaderTitle }
+
+export { Container }

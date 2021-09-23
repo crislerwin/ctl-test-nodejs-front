@@ -2,7 +2,8 @@ import { Form } from 'antd'
 import { ContactForm } from '../components/ContactForm'
 import { api } from '../services/api'
 import { BillingForm } from '../components/BillingForm'
-import  { Container, Header, HeaderTitle } from './styles/globals'
+import { Header } from '../components/Header'
+import  { Container } from './styles/globals'
 const Home: React.FC = () => {
   const onFinish = (values: any) => {
     api.post('/register', values).then((res) => {
@@ -16,9 +17,7 @@ const Home: React.FC = () => {
   }
   return (
     <>
-      <Header>
-        <HeaderTitle>Contele</HeaderTitle>
-      </Header>
+     <Header title="Contele" />
       <Container>
         <Form
           name="basic"

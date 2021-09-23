@@ -9,29 +9,34 @@ const SubmitButton = styled(Button)`
   background-color: ${(props) => props.theme.colors.text};
 `
 const PurchaseInput = styled(Input)`
-width: 640px;
+width: 31rem;
 `
 const ButtonContainer = styled.div`
-  margin-left: 320px;
-  margin-top: 20px;
+  margin: 0 auto;
+ 
 `
 
 const FormContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
+  flex-wrap: wrap;
+  margin: 0 20px;
+  
 `
 
 const Title = styled.h1`
   color: ${(props) => props.theme.colors.text};
   font-size: 24px;
   font-weight: 600;
-  margin-left: 20px;
-  margin-top: 20px;
 `
 const Container = styled.div`
 display: flex;
-flex-direction: row;
-justify-content: space-between;
-`;
+flex-direction: column;
+
+`
+
+
+
+
 export { ButtonContainer, FormContainer, SubmitButton, Title, Container, PurchaseInput }
