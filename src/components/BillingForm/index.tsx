@@ -17,18 +17,18 @@ export const BillingForm: React.FC = () => {
           <Title>Billing Adress:</Title>
           <Form.Item
             style={{ width: '28rem' }}
-            name="b_adress1"
+            name="primary_billing_adress"
             rules={[
               {
                 required: true,
-                message: 'Please input your select your firstadress!'
+                message: 'Type your adress'
               }
             ]}
           >
             <Input placeholder="Adress Line 1" />
           </Form.Item>
           <Form.Item
-            name="b_adress2"
+            name="second_billing_adress"
             rules={[
               { required: true, message: 'Please complete your address' }
             ]}
@@ -38,11 +38,11 @@ export const BillingForm: React.FC = () => {
           <Space direction="horizontal">
             <Form.Item
               style={{ width: '9rem' }}
-              name="b_city"
+              name="billing_city"
               rules={[
                 {
                   required: true,
-                  message: 'Please input your select your city'
+                  message: 'Type your city'
                 }
               ]}
             >
@@ -56,11 +56,11 @@ export const BillingForm: React.FC = () => {
             </Form.Item>
             <Form.Item
               style={{ width: '9rem' }}
-              name="b_state"
+              name="billing_state"
               rules={[
                 {
                   required: true,
-                  message: 'Please type your your state'
+                  message: 'Type your your state'
                 }
               ]}
             >
@@ -73,12 +73,12 @@ export const BillingForm: React.FC = () => {
               </Select>
             </Form.Item>
             <Form.Item
-              name="b_zipcode"
+              name="billing_zip_code"
               style={{ width: '9rem' }}
               rules={[
                 {
                   required: true,
-                  message: 'Please type your zipcode'
+                  message: 'Type your zipcode'
                 }
               ]}
             >
@@ -86,7 +86,7 @@ export const BillingForm: React.FC = () => {
             </Form.Item>
           </Space>
 
-          <Form.Item name="same_shipping_adress?" valuePropName="checked">
+          <Form.Item name="same_shipping_adress" valuePropName="checked">
             <Checkbox>Use shipping address as same as billing address</Checkbox>
           </Form.Item>
         </Space>
@@ -100,18 +100,18 @@ export const BillingForm: React.FC = () => {
               Does any veihicle need to be equiped with a fuel cut off device?
             </Checkbox>
           </Form.Item>
-          <Form.Item name="trackers?" valuePropName="checked">
+          <Form.Item name="other_installed_trackers" valuePropName="checked">
             <Checkbox>
               Will any trackers to be installed on a bike, truck or machinery?
             </Checkbox>
           </Form.Item>
 
-          <Form.Item name="identify_fleet-drivers" valuePropName="checked">
+          <Form.Item name="identify_fleet_drivers" valuePropName="checked">
             <Checkbox>Will you need to identify the fleet drivers?</Checkbox>
           </Form.Item>
           <Form.Item
-            name="trackers"
-            rules={[{ required: true, message: 'Please input your trackers' }]}
+            name="tracker_quantity"
+            rules={[{ required: true, message: 'Type your tracker quantity' }]}
           >
             <PurchaseInput
               placeholder="How many trackers would you like to purchase?"

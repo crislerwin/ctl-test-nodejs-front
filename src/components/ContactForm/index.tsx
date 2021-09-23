@@ -56,7 +56,7 @@ export const ContactForm: React.FC = () => {
         <Space direction="horizontal" size="small">
           <Form.Item
             style={{ width: '14rem' }}
-            name="languages"
+            name="language"
             rules={[{ required: true, message: 'Please input your languages' }]}
           >
             <Select placeholder="Languages">
@@ -93,7 +93,7 @@ export const ContactForm: React.FC = () => {
             rules={[
               {
                 required: true,
-                message: 'Please input your firstadress!'
+                message: 'Please input your adress!'
               }
             ]}
           >
@@ -101,7 +101,7 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
           <Form.Item
             style={{ width: '31rem' }}
-            name="complement_adress"
+            name="second_adress"
             rules={[
               { required: true, message: 'Please input your complement' }
             ]}
@@ -141,7 +141,7 @@ export const ContactForm: React.FC = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Please select your zipcode'
+                  message: 'Type your zipcode'
                 }
               ]}
             >
