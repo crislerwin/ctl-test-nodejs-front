@@ -16,7 +16,7 @@ export const ContactForm: React.FC = () => {
         <Title>Contact Information:</Title>
         <Space direction="horizontal" size="small">
           <Form.Item
-            name="firstname"
+            name="first_name"
             rules={[
               { required: true, message: 'Please input your firstname!' }
             ]}
@@ -25,7 +25,7 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
 
           <Form.Item
-            name="lastname"
+            name="last_name"
             rules={[{ required: true, message: 'Please input your lastname!' }]}
           >
             <ContactInput placeholder="Last Name" />
@@ -41,7 +41,7 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
 
           <Form.Item
-            name="phone"
+            name="phone_number"
             rules={[
               {
                 required: true,
@@ -55,7 +55,7 @@ export const ContactForm: React.FC = () => {
 
         <Space direction="horizontal" size="small">
           <Form.Item
-            style={{ width: '16rem' }}
+            style={{ width: '14rem' }}
             name="languages"
             rules={[{ required: true, message: 'Please input your languages' }]}
           >
@@ -69,7 +69,7 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
 
           <Form.Item
-            style={{ width: '16rem' }}
+            style={{ width: '14rem' }}
             name="country"
             rules={[{ required: true, message: 'Please input your country!' }]}
           >

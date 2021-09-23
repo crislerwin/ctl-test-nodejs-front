@@ -60,7 +60,7 @@ export const BillingForm: React.FC = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your select your state'
+                  message: 'Please type your your state'
                 }
               ]}
             >
@@ -78,7 +78,7 @@ export const BillingForm: React.FC = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your zipcode'
+                  message: 'Please type your zipcode'
                 }
               ]}
             >
@@ -95,7 +95,7 @@ export const BillingForm: React.FC = () => {
       <Container>
         <Space direction="vertical" size="small">
           <Title>Check the boxes below:</Title>
-          <Form.Item name="fuelcut?" valuePropName="checked">
+          <Form.Item name="fcut_device" valuePropName="checked">
             <Checkbox>
               Does any veihicle need to be equiped with a fuel cut off device?
             </Checkbox>
@@ -106,11 +106,11 @@ export const BillingForm: React.FC = () => {
             </Checkbox>
           </Form.Item>
 
-          <Form.Item name="identify?" valuePropName="checked">
+          <Form.Item name="identify_fleet-drivers" valuePropName="checked">
             <Checkbox>Will you need to identify the fleet drivers?</Checkbox>
           </Form.Item>
           <Form.Item
-            name="purchaseTrackers"
+            name="trackers"
             rules={[{ required: true, message: 'Please input your trackers' }]}
           >
             <PurchaseInput

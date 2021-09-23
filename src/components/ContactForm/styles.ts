@@ -7,11 +7,11 @@ const FormContainer = styled.div`
   flex-wrap: wrap;
 `
 const ContactInput = styled(Input)`
-  width: 16rem;
+  width: 14rem;
 `
 
 const ContactSelect = styled(Select)`
-  width: 16rem;
+  width: 14rem;
 `
 const Title = styled.h1`
   color: ${(props) => props.theme.colors.text};

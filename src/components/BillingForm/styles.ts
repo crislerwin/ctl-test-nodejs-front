@@ -6,7 +6,6 @@ const SubmitButton = styled(Button)`
   height: 50px;
   border-radius: 5px;
   background-color: ${(props) => props.theme.colors.text};
-  margin-left: 30vh;
 `
 const PurchaseInput = styled(Input)`
 width: 31rem;
