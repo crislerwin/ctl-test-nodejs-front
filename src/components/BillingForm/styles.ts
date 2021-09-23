@@ -31,7 +31,7 @@ display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
-margin-left: 2rem
+  margin-top: 10px;
 `
 
 

@@ -2,10 +2,10 @@ import { Form } from 'antd'
 import { ContactForm } from '../components/ContactForm'
 import { api } from '../services/api'
 import { BillingForm } from '../components/BillingForm'
-import { PageHeader } from 'antd'
-import { HeaderLogo } from '../components/HeaderLogo'
+import {useTheme} from 'styled-components'
 
 const Home: React.FC = () => {
+  const theme = useTheme()
   const onFinish = (values: any) => {
     api.post('/register', values).then((res) => {
       console.log(res)
@@ -26,6 +26,7 @@ const Home: React.FC = () => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
+        
       >
         <ContactForm />
         <BillingForm />

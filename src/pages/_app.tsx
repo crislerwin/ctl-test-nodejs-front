@@ -12,12 +12,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <PageHeader
         className="site-page-header"
         title={<HeaderLogo />}
-        style={{
-          background: '#fff',
-          width: '100%',
-          height: '100%',
-          marginBottom: '20px'
-        }}
       />
       <Component {...pageProps} />
       <GlobalStyle />
