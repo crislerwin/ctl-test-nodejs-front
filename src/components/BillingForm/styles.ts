@@ -16,7 +16,7 @@ const FormContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: auto;
+  margin: 0 auto;
 
 `
 
