@@ -10,6 +10,8 @@ export default createGlobalStyle`
     background: #fff;
     font-family:  'Roboto', sans-serif;
     background-color: ${(p) => p.theme.colors.background};
+    width: 100%;
+    height: 100vh;
   
   }
 `

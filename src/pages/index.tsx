@@ -18,12 +18,8 @@ const Home: React.FC = () => {
   }
   return (
     <>
-      <PageHeader
-        className="site-page-header"
-        title={<HeaderLogo />}
-        style={{ background: '#fff', color: 'blue' }}
-      />
-      ,
+    
+      
       <Form
         name="basic"
         initialValues={{ remember: true }}

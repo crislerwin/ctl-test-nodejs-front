@@ -22,7 +22,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: auto;
+  margin: 0 auto;
   margin-left: 2rem;
 `
 
