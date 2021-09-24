@@ -17,7 +17,7 @@ const Sucess: React.FC = () => {
         onBack={() => router.push('/')}
         title={<HeaderLogo />}
       />
-      <Space>
+      <Space direction="vertical">
         <Table dataSource={data}>
           <ColumnGroup title="User Data">
             <Column title="First Name" dataIndex="first_name" key="firstname" />
@@ -36,7 +36,10 @@ const Sucess: React.FC = () => {
             />
             <Column title="City" dataIndex="city" key="city" />
             <Column title="ZIP Code" dataIndex="zip_code" key="zipcode" />
-
+          </ColumnGroup>
+        </Table>
+        <Table dataSource={data}>
+          <ColumnGroup title="Billing Information">
             <Column
               title="Billing Adress 1"
               dataIndex="primary_billing_adress"
