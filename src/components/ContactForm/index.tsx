@@ -14,7 +14,7 @@ export const ContactForm: React.FC = () => {
     <FormContainer>
       <Container>
         <Title>Contact Information:</Title>
-        <Space direction="horizontal" size="small">
+        <Space direction="horizontal">
           <Form.Item
             name="first_name"
             rules={[
@@ -32,7 +32,7 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
         </Space>
 
-        <Space direction="horizontal" size="small">
+        <Space direction="horizontal">
           <Form.Item
             name="email"
             rules={[{ required: true, message: 'Please input your email' }]}
@@ -53,7 +53,7 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
         </Space>
 
-        <Space direction="horizontal" size="small">
+        <Space direction="horizontal"  >
           <Form.Item
             style={{ width: '14rem' }}
             name="language"
@@ -69,7 +69,7 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
 
           <Form.Item
-            style={{ width: '14rem' }}
+         style={{ width: '14rem' }}
             name="country"
             rules={[{ required: true, message: 'Please input your country!' }]}
           >
@@ -88,7 +88,7 @@ export const ContactForm: React.FC = () => {
         <Space direction="vertical" size="small">
           <Title>Shipping Adress:</Title>
           <Form.Item
-            style={{ width: '31rem' }}
+            style={{ width: '28rem' }}
             name="first_adress"
             rules={[
               {
@@ -100,7 +100,7 @@ export const ContactForm: React.FC = () => {
             <Input placeholder="Adress Line 1" />
           </Form.Item>
           <Form.Item
-            style={{ width: '31rem' }}
+            style={{ width: '28rem' }}
             name="second_adress"
             rules={[
               { required: true, message: 'Please input your complement' }
@@ -110,7 +110,7 @@ export const ContactForm: React.FC = () => {
           </Form.Item>
           <Space direction="horizontal">
             <Form.Item
-              style={{ width: '10rem' }}
+              style={{ width: '9rem' }}
               name="city"
               rules={[{ required: true, message: 'Please select your city' }]}
             >
@@ -123,7 +123,7 @@ export const ContactForm: React.FC = () => {
               </Select>
             </Form.Item>
             <Form.Item
-              style={{ width: '10rem' }}
+              style={{ width: '9rem' }}
               name="state"
               rules={[{ required: true, message: 'Please input your state' }]}
             >
@@ -136,7 +136,7 @@ export const ContactForm: React.FC = () => {
               </Select>
             </Form.Item>
             <Form.Item
-              style={{ width: '10rem' }}
+              style={{ width: '9rem' }}
               name="zip_code"
               rules={[
                 {

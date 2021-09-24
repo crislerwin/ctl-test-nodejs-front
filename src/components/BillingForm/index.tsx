@@ -93,7 +93,7 @@ export const BillingForm: React.FC = () => {
       </Container>
 
       <Container>
-        <Space direction="vertical" size="small">
+        <Space direction="vertical"  style={{ width: '30rem' }}>
           <Title>Check the boxes below:</Title>
           <Form.Item name="fcut_device" valuePropName="checked">
             <Checkbox>
@@ -109,7 +109,8 @@ export const BillingForm: React.FC = () => {
           <Form.Item name="identify_fleet_drivers" valuePropName="checked">
             <Checkbox>Will you need to identify the fleet drivers?</Checkbox>
           </Form.Item>
-          <Form.Item
+          <Form.Item 
+         
             name="tracker_quantity"
             rules={[{ required: true, message: 'Type your tracker quantity' }]}
           >
