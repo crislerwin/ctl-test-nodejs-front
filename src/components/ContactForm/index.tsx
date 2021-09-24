@@ -18,7 +18,7 @@ export const ContactForm: React.FC = () => {
           <Form.Item
             name="first_name"
             rules={[
-              { required: true, message: 'Please input your firstname!' }
+              { required: true, message: 'Enter your firstname!' }
             ]}
           >
             <ContactInput placeholder="First Name" />
@@ -26,7 +26,7 @@ export const ContactForm: React.FC = () => {
 
           <Form.Item
             name="last_name"
-            rules={[{ required: true, message: 'Please input your lastname!' }]}
+            rules={[{ required: true, message: 'Enter your lastname!' }]}
           >
             <ContactInput placeholder="Last Name" />
           </Form.Item>
@@ -35,7 +35,7 @@ export const ContactForm: React.FC = () => {
         <Space direction="horizontal">
           <Form.Item
             name="email"
-            rules={[{ required: true, message: 'Please input your email' }]}
+            rules={[{ required: true, message: 'Enter your email' }]}
           >
             <ContactInput placeholder="Email Adress" type="text" />
           </Form.Item>
@@ -45,7 +45,7 @@ export const ContactForm: React.FC = () => {
             rules={[
               {
                 required: true,
-                message: 'Please input your phone number!'
+                message: 'Enter your phone number!'
               }
             ]}
           >
@@ -57,7 +57,7 @@ export const ContactForm: React.FC = () => {
           <Form.Item
             style={{ width: '14rem' }}
             name="language"
-            rules={[{ required: true, message: 'Please input your languages' }]}
+            rules={[{ required: true, message: 'Enter your languages' }]}
           >
             <Select placeholder="Languages">
               {languages.map((language) => (
@@ -71,7 +71,7 @@ export const ContactForm: React.FC = () => {
           <Form.Item
          style={{ width: '14rem' }}
             name="country"
-            rules={[{ required: true, message: 'Please input your country!' }]}
+            rules={[{ required: true, message: 'Enter your country!' }]}
           >
             <Select placeholder="Country">
               {countries.map((region) => (
@@ -93,7 +93,7 @@ export const ContactForm: React.FC = () => {
             rules={[
               {
                 required: true,
-                message: 'Please input your adress!'
+                message: 'Enter your adress!'
               }
             ]}
           >
@@ -103,7 +103,7 @@ export const ContactForm: React.FC = () => {
             style={{ width: '28rem' }}
             name="second_adress"
             rules={[
-              { required: true, message: 'Please input your complement' }
+              { required: true, message: 'Enter your complement' }
             ]}
           >
             <Input placeholder="Adress Line 2" />
@@ -112,7 +112,7 @@ export const ContactForm: React.FC = () => {
             <Form.Item
               style={{ width: '9rem' }}
               name="city"
-              rules={[{ required: true, message: 'Please select your city' }]}
+              rules={[{ required: true, message: 'Enter your city' }]}
             >
               <Select placeholder="City">
                 {countries.map((region) => (
@@ -125,7 +125,7 @@ export const ContactForm: React.FC = () => {
             <Form.Item
               style={{ width: '9rem' }}
               name="state"
-              rules={[{ required: true, message: 'Please input your state' }]}
+              rules={[{ required: true, message: 'Enter your state' }]}
             >
               <Select placeholder="State">
                 {countries.map((region) => (
@@ -141,7 +141,7 @@ export const ContactForm: React.FC = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Type your zipcode'
+                  message: 'Enter your zipcode'
                 }
               ]}
             >

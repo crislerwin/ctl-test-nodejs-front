@@ -21,7 +21,7 @@ export const BillingForm: React.FC = () => {
             rules={[
               {
                 required: true,
-                message: 'Type your adress'
+                message: 'Enter your billing address'
               }
             ]}
           >
@@ -30,7 +30,7 @@ export const BillingForm: React.FC = () => {
           <Form.Item
             name="second_billing_adress"
             rules={[
-              { required: true, message: 'Please complete your address' }
+              { required: true, message: 'Enter your billing address complement' }
             ]}
           >
             <Input placeholder="Adress Line 2" />
@@ -42,7 +42,7 @@ export const BillingForm: React.FC = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Type your city'
+                  message: 'Enter your city'
                 }
               ]}
             >
@@ -60,7 +60,7 @@ export const BillingForm: React.FC = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Type your your state'
+                  message: 'Enter your state'
                 }
               ]}
             >
@@ -78,7 +78,7 @@ export const BillingForm: React.FC = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Type your zipcode'
+                  message: 'Enter your zip code'
                 }
               ]}
             >
@@ -112,7 +112,7 @@ export const BillingForm: React.FC = () => {
           <Form.Item 
          
             name="tracker_quantity"
-            rules={[{ required: true, message: 'Type your tracker quantity' }]}
+            rules={[{ required: true, message: 'How many trackers?' }]}
           >
             <PurchaseInput
               placeholder="How many trackers would you like to purchase?"
