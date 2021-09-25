@@ -4,8 +4,7 @@ import { HeaderLogo } from '../components/HeaderLogo'
 import router from 'next/router'
 import { UserData } from '../interfaces/userData'
 import { useFetch } from '../hooks/useFetch'
-import React from 'react'
-const { Column, ColumnGroup } = Table
+
 const Sucess: React.FC = () => {
   const { data } = useFetch<UserData[]>('/register')
   if (!data) return <h1>Loading...</h1>
@@ -17,62 +16,74 @@ const Sucess: React.FC = () => {
         onBack={() => router.push('/')}
         title={<HeaderLogo />}
       />
-      <Space direction="vertical">
-        <Table dataSource={data}>
-          <ColumnGroup title="User Data">
-            <Column title="First Name" dataIndex="first_name" key="firstname" />
-            <Column title="Last Name" dataIndex="last_name" key="lastname" />
-            <Column title="Email" dataIndex="email" key="email" />
-            <Column title="Language" dataIndex="language" key="language" />
-            <Column
-              title="Adress 1"
-              dataIndex="first_adress"
-              key="firstadress"
-            />
-            <Column
-              title="Adress 2"
-              dataIndex="second_adress"
-              key="second_adress"
-            />
-            <Column title="City" dataIndex="city" key="city" />
-            <Column title="ZIP Code" dataIndex="zip_code" key="zipcode" />
-          </ColumnGroup>
-        </Table>
-        <Table dataSource={data}>
-          <ColumnGroup title="Billing Information">
-            <Column
-              title="Billing Adress 1"
-              dataIndex="primary_billing_adress"
-              key="billing_adress1"
-            />
-            <Column
-              title="Billing Adress 2"
-              dataIndex="second_billing_adress"
-              key="billing_adress2"
-            />
-            <Column
-              title="Billing City"
-              dataIndex="billing_city"
-              key="billing_city"
-            />
-            <Column
-              title="Billing State"
-              dataIndex="billing_state"
-              key="billing_state"
-            />
-            <Column
-              title="Billing ZIP"
-              dataIndex="billing_zip_code"
-              key="b_zipcode"
-            />
-            <Column
-              title="Trackers"
-              dataIndex="tracker_quantity"
-              key="trackerquantity"
-            />
-          </ColumnGroup>
-        </Table>
-      </Space>
+     
+        <Space direction="vertical" style={{ textAlign: 'center', margin:10 }}>
+          <h4>Full Name</h4>
+          {data.map((d) => (
+            <p>{`${d.first_name} ${d.last_name}`}</p>
+          ))}
+        </Space>
+        <Space direction="vertical" style={{ textAlign: 'center', margin: 10 }}>
+          <h4>Phone Number</h4>
+          {data.map((d) => (
+            <p>{d.phone_number}</p>
+          ))}
+        </Space>
+        <Space direction="vertical" style={{ textAlign: 'center', margin: 10 }}>
+          <h4>Language</h4>
+          {data.map((d) => (
+            <p>{d.language}</p>
+          ))}
+        </Space>
+        <Space direction="vertical" style={{ textAlign: 'center', margin: 10 }}>
+          <h4>Country</h4>
+          {data.map((d) => (
+            <p>{d.country}</p>
+          ))}
+        </Space>
+        <Space direction="vertical" style={{ textAlign: 'center', margin: 10 }}>
+          <h4>ZIP Code</h4>
+          {data.map((d) => (
+            <p>{d.zip_code}</p>
+          ))}
+        </Space>
+        <Space direction="vertical" style={{ textAlign: 'center', margin: 10 }}>
+          <h4>Full Adress</h4>
+          {data.map((d) => (
+            <p>{`${d.first_adress} ${d.second_adress}`}</p>
+          ))}
+        </Space>
+        <Space direction="vertical" style={{ textAlign: 'center', margin: 10 }}>
+          <h4>Billing Adress</h4>
+          {data.map((d) => (
+            <p>{`${d.primary_billing_adress} ${d.second_billing_adress}`}</p>
+          ))}
+        </Space>
+        <Space direction="vertical" style={{ textAlign: 'center', margin: 10 }}>
+          <h4>B.ZIP Code</h4>
+          {data.map((d) => (
+            <p>{d.billing_zip_code}</p>
+          ))}
+        </Space>
+        <Space direction="vertical" style={{ textAlign: 'center', margin: 10 }}>
+          <h4>Fuel Cut Device?</h4>
+          {data.map((d) => (
+            <p>{d.fcut_device === true ? 'Yes' : 'No'}</p>
+          ))}
+        </Space>
+        <Space direction="vertical" style={{ textAlign: 'center', margin: 10 }}>
+          <h4>Identify Fleet Drivers?</h4>
+          {data.map((d) => (
+            <p>{d.identify_fleet_drivers === true ? 'Yes' : 'No'}</p>
+          ))}
+        </Space>
+        <Space direction="vertical" style={{ textAlign: 'center', margin: 10 }}>
+          <h4>Other installed Trackers?</h4>
+          {data.map((d) => (
+            <p>{d.other_installed_trackers === true ? 'Yes' : 'No'}</p>
+          ))}
+        </Space>
+      
     </>
   )
 }

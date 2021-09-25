@@ -1,6 +1,5 @@
 {
   "register": [
-  
     {
       "first_name": "Crisler",
       "last_name": "Wintler",
@@ -24,7 +23,28 @@
       "identify_fleet_drivers": true,
       "tracker_quantity": "8",
       "id": 2
+    },
+    {
+      "first_name": "Carlos",
+      "last_name": "Willian",
+      "email": "Rua tal tal tal",
+      "phone_number": "232323",
+      "language": "en",
+      "country": "us",
+      "first_adress": "Rua Tal 3232",
+      "second_adress": "Cidade Tal das Quantas",
+      "city": "ca",
+      "state": "us",
+      "zip_code": "232323",
+      "primary_billing_adress": "Rua tal 320",
+      "second_billing_adress": "Cidade Empresarial",
+      "billing_city": "us",
+      "billing_state": "ca",
+      "billing_zip_code": "232323",
+      "fcut_device": true,
+      "identify_fleet_drivers": true,
+      "tracker_quantity": "4",
+      "id": 3
     }
-    
   ]
 }

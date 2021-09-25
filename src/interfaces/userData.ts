@@ -21,4 +21,5 @@ export interface UserData {
   identify_fleet_drivers: boolean
   fcut_device: boolean
   tracker_quantity: string
+  created_at: string
 }
