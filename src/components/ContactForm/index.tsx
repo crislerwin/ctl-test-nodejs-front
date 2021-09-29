@@ -2,12 +2,12 @@ import React from 'react'
 import {
   FormContainer,
   ContactInput,
-  ContactSelect,
+  
   Title,
   Container
 } from './styles'
 import { Select, Space, Form, Input } from 'antd'
-import { languages, countries } from '../../utils/select'
+import { languages, countries, city, state} from '../../utils/select'
 
 export const ContactForm: React.FC = () => {
   return (
@@ -74,9 +74,9 @@ export const ContactForm: React.FC = () => {
             rules={[{ required: true, message: 'Enter your country!' }]}
           >
             <Select placeholder="Country">
-              {countries.map((region) => (
-                <Select.Option key={region.id} value={region.value}>
-                  {region.label}
+              {countries.map((country) => (
+                <Select.Option key={country.id} value={country.value}>
+                  {country.label}
                 </Select.Option>
               ))}
             </Select>
@@ -115,9 +115,9 @@ export const ContactForm: React.FC = () => {
               rules={[{ required: true, message: 'Enter your city' }]}
             >
               <Select placeholder="City">
-                {countries.map((region) => (
-                  <Select.Option key={region.id} value={region.value}>
-                    {region.label}
+                {city.map((ct) => (
+                  <Select.Option key={ct.id} value={ct.value}>
+                    {ct.label}
                   </Select.Option>
                 ))}
               </Select>
@@ -128,9 +128,9 @@ export const ContactForm: React.FC = () => {
               rules={[{ required: true, message: 'Enter your state' }]}
             >
               <Select placeholder="State">
-                {countries.map((region) => (
-                  <Select.Option key={region.id} value={region.value}>
-                    {region.label}
+                {state.map((st) => (
+                  <Select.Option key={st.id} value={st.value}>
+                    {st.label}
                   </Select.Option>
                 ))}
               </Select>

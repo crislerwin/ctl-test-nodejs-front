@@ -1,6 +1,6 @@
 import { Checkbox, Select, Space, Form, Input } from 'antd'
 import React from 'react'
-import { countries } from '../../utils/select'
+import { countries, city } from '../../utils/select'
 import {
   FormContainer,
   SubmitButton,
@@ -30,7 +30,10 @@ export const BillingForm: React.FC = () => {
           <Form.Item
             name="second_billing_adress"
             rules={[
-              { required: true, message: 'Enter your billing address complement' }
+              {
+                required: true,
+                message: 'Enter your billing address complement'
+              }
             ]}
           >
             <Input placeholder="Adress Line 2" />
@@ -47,9 +50,9 @@ export const BillingForm: React.FC = () => {
               ]}
             >
               <Select placeholder="City">
-                {countries.map((region) => (
-                  <Select.Option key={region.id} value={region.value}>
-                    {region.label}
+                {city.map((ct) => (
+                  <Select.Option key={ct.id} value={ct.value}>
+                    {ct.label}
                   </Select.Option>
                 ))}
               </Select>
@@ -65,9 +68,9 @@ export const BillingForm: React.FC = () => {
               ]}
             >
               <Select placeholder="State">
-                {countries.map((region) => (
-                  <Select.Option key={region.id} value={region.value}>
-                    {region.label}
+                {countries.map((country) => (
+                  <Select.Option key={country.id} value={country.value}>
+                    {country.label}
                   </Select.Option>
                 ))}
               </Select>
@@ -93,7 +96,7 @@ export const BillingForm: React.FC = () => {
       </Container>
 
       <Container>
-        <Space direction="vertical"  style={{ width: '30rem' }}>
+        <Space direction="vertical" style={{ width: '30rem' }}>
           <Title>Check the boxes below:</Title>
           <Form.Item name="fcut_device" valuePropName="checked">
             <Checkbox>
@@ -109,8 +112,7 @@ export const BillingForm: React.FC = () => {
           <Form.Item name="identify_fleet_drivers" valuePropName="checked">
             <Checkbox>Will you need to identify the fleet drivers?</Checkbox>
           </Form.Item>
-          <Form.Item 
-         
+          <Form.Item
             name="tracker_quantity"
             rules={[{ required: true, message: 'How many trackers?' }]}
           >

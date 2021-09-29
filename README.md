@@ -1,24 +1,12 @@
-# Junior Developer Test
+# Contele Developer Test Front
 
-### This is a project to became a junior developer at **Contele**.
-
-## Technologies used
+## Este projeto foi desenvolvido para a vaga de desenvolvedor na Contele.
+ 
+## Tecnologias utilizadas
 - Next.js
 - Typescript
 - Styled-components
 - Ant Design
-
-## Implemented features
-
-### Registration screen, with the user registration form, with the fields:
-
-- Name
-- Email
-- Address
-- Phone
-- Does any vehicle need to be equiped with a fuel cut off device?
-- Will any trackers to be installed on a bike, truck or machinery?
-- Will you need to identify the fleet drivers?
 
 ## Screenshot
 [**Preview**](https://nextjs-styled-typescript.vercel.app/)

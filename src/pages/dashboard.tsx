@@ -6,7 +6,7 @@ import { UserData } from '../interfaces/userData'
 import { useFetch } from '../hooks/useFetch'
 
 const Sucess: React.FC = () => {
-  const { data } = useFetch<UserData[]>('/register')
+  const { data } = useFetch<UserData[]>('/subscription')
   if (!data) return <h1>Loading...</h1>
 
   return (

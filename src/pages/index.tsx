@@ -4,16 +4,14 @@ import { api } from '../services/api'
 import { BillingForm } from '../components/BillingForm'
 import { PageHeader } from 'antd'
 import { HeaderLogo } from '../components/HeaderLogo'
-import router from 'next/router'
 import { UserData } from '../interfaces/userData'
 const Home: React.FC = () => {
   const onFinish = (values: UserData) => {
-    api.post('/register', values).then((res) => {
+    api.post('/subscription', values).then((res) => {
       console.log(res)
       window.alert(
-        `${values.first_name} ${values.last_name} your data has been registered successfully`
+        `${values.first_name} ${values.last_name} has been registered successfully`
       )
-      router.push('/dashboard')
     })
   }
 
