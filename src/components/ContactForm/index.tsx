@@ -2,20 +2,7 @@ import React from 'react'
 import { FormContainer, ContactInput, Title, Container } from './styles'
 import { Select, Space, Form, Input } from 'antd'
 import { useTranslation } from 'react-i18next'
-
-export interface IContactForm  {
-  name: string
-  last_name: string
-  adress1: string
-  adress2: string
-  email: string
-  phone: string
-  language: string
-  country: string
-  zip_code: string
-  city: string
-  state: string
-}
+import { IContactForm } from '../../interfaces/ContactForm'
 
 export const ContactForm: React.FC<IContactForm> = ({
   name,
@@ -26,9 +13,9 @@ export const ContactForm: React.FC<IContactForm> = ({
   phone,
   language,
   country,
-  zip_code, 
+  zip_code,
   city,
-  state,
+  state
 }) => {
   const { t, i18n } = useTranslation()
   return (
