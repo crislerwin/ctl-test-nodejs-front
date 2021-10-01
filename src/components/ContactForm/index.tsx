@@ -1,151 +1,154 @@
 import React from 'react'
-import {
-  FormContainer,
-  ContactInput,
-  
-  Title,
-  Container
-} from './styles'
+import { FormContainer, ContactInput, Title, Container } from './styles'
 import { Select, Space, Form, Input } from 'antd'
-import { languages, countries, city, state} from '../../utils/select'
+import { useTranslation } from 'react-i18next'
 
-export const ContactForm: React.FC = () => {
+export interface IContactForm  {
+  name: string
+  last_name: string
+  adress1: string
+  adress2: string
+  email: string
+  phone: string
+  language: string
+  country: string
+  zip_code: string
+  city: string
+  state: string
+}
+
+export const ContactForm: React.FC<IContactForm> = ({
+  name,
+  last_name,
+  adress1,
+  adress2,
+  email,
+  phone,
+  language,
+  country,
+  zip_code, 
+  city,
+  state,
+}) => {
+  const { t, i18n } = useTranslation()
   return (
     <FormContainer>
       <Container>
-        <Title>Contact Information:</Title>
+        <Title>{t('Contact Information')}</Title>
         <Space direction="horizontal">
           <Form.Item
-            name="first_name"
-            rules={[
-              { required: true, message: 'Enter your firstname!' }
-            ]}
+            name={name}
+            rules={[{ required: true, message: t('First Name Alert') }]}
           >
-            <ContactInput placeholder="First Name" />
+            <ContactInput placeholder={t('First Name')} required />
           </Form.Item>
 
           <Form.Item
-            name="last_name"
-            rules={[{ required: true, message: 'Enter your lastname!' }]}
+            name={last_name}
+            rules={[{ required: true, message: t('Last Name Alert') }]}
           >
-            <ContactInput placeholder="Last Name" />
+            <ContactInput placeholder={t('Last Name')} required />
           </Form.Item>
         </Space>
 
         <Space direction="horizontal">
           <Form.Item
-            name="email"
-            rules={[{ required: true, message: 'Enter your email' }]}
+            name={email}
+            rules={[{ required: true, message: t('Email Alert') }]}
           >
-            <ContactInput placeholder="Email Adress" type="text" />
+            <ContactInput
+              placeholder={t('Email Adress')}
+              type="text"
+              required
+            />
           </Form.Item>
 
           <Form.Item
-            name="phone_number"
+            name={phone}
             rules={[
               {
                 required: true,
-                message: 'Enter your phone number!'
+                message: t('Phone Number Alert')
               }
             ]}
           >
-            <ContactInput placeholder="Phone" />
+            <ContactInput placeholder={t('Phone Number')} />
           </Form.Item>
         </Space>
 
-        <Space direction="horizontal"  >
+        <Space direction="horizontal">
           <Form.Item
             style={{ width: '14rem' }}
-            name="language"
-            rules={[{ required: true, message: 'Enter your languages' }]}
+            name={language}
+            rules={[{ required: true, message: t('Language Alert') }]}
           >
-            <Select placeholder="Languages">
-              {languages.map((language) => (
-                <Select.Option key={language.id} value={language.value}>
-                  {language.label}
-                </Select.Option>
-              ))}
+            <Select
+              placeholder={t('Language')}
+              onChange={(value: string) => i18n.changeLanguage(value)}
+            >
+              <Select.Option value="pt">Português</Select.Option>
+              <Select.Option value="en">English</Select.Option>
             </Select>
           </Form.Item>
 
           <Form.Item
-         style={{ width: '14rem' }}
-            name="country"
-            rules={[{ required: true, message: 'Enter your country!' }]}
+            style={{ width: '14rem' }}
+            name={country}
+            rules={[{ required: true, message: t('Country Alert') }]}
           >
-            <Select placeholder="Country">
-              {countries.map((country) => (
-                <Select.Option key={country.id} value={country.value}>
-                  {country.label}
-                </Select.Option>
-              ))}
-            </Select>
+            <Input placeholder={t('Country')} required />
           </Form.Item>
         </Space>
       </Container>
 
       <Container>
         <Space direction="vertical" size="small">
-          <Title>Shipping Adress:</Title>
+          <Title>{t('Shipping Adress')}</Title>
           <Form.Item
             style={{ width: '28rem' }}
-            name="first_adress"
+            name={adress1}
             rules={[
               {
                 required: true,
-                message: 'Enter your adress!'
+                message: t('Adress 1 Alert')
               }
             ]}
           >
-            <Input placeholder="Adress Line 1" />
+            <Input placeholder={t('Adress Line 1')} required />
           </Form.Item>
           <Form.Item
             style={{ width: '28rem' }}
-            name="second_adress"
-            rules={[
-              { required: true, message: 'Enter your complement' }
-            ]}
+            name={adress2}
+            rules={[{ required: true, message: t('Adress 2 Alert') }]}
           >
-            <Input placeholder="Adress Line 2" />
+            <Input placeholder={t('Adress Line 2')} required />
           </Form.Item>
           <Space direction="horizontal">
             <Form.Item
               style={{ width: '9rem' }}
-              name="city"
-              rules={[{ required: true, message: 'Enter your city' }]}
+              name={city}
+              rules={[{ required: true, message: t('City Alert') }]}
             >
-              <Select placeholder="City">
-                {city.map((ct) => (
-                  <Select.Option key={ct.id} value={ct.value}>
-                    {ct.label}
-                  </Select.Option>
-                ))}
-              </Select>
+              <Input placeholder={t('City')} />
             </Form.Item>
             <Form.Item
               style={{ width: '9rem' }}
-              name="state"
-              rules={[{ required: true, message: 'Enter your state' }]}
+              name={state}
+              rules={[{ required: true, message: t('State Alert') }]}
             >
-              <Select placeholder="State">
-                {state.map((st) => (
-                  <Select.Option key={st.id} value={st.value}>
-                    {st.label}
-                  </Select.Option>
-                ))}
-              </Select>
+              <Input placeholder={t('State')} required />
             </Form.Item>
             <Form.Item
               style={{ width: '9rem' }}
-              name="zip_code"
+              name={zip_code}
               rules={[
                 {
                   required: true,
-                  message: 'Enter your zipcode'
+                  message: t('ZIP Code Alert')
                 }
               ]}
             >
-              <Input placeholder="ZIP Code" />
+              <Input placeholder={t('ZIP Code')} required />
             </Form.Item>
           </Space>
         </Space>

@@ -1,6 +1,6 @@
-import { Checkbox, Select, Space, Form, Input } from 'antd'
+import { Checkbox, Space, Form, Input } from 'antd'
 import React from 'react'
-import { countries, city } from '../../utils/select'
+import { useTranslation } from 'react-i18next'
 import {
   FormContainer,
   SubmitButton,
@@ -9,121 +9,130 @@ import {
   PurchaseInput
 } from './styles'
 
-export const BillingForm: React.FC = () => {
+export interface IBillingForm {
+  adress1: string
+  adress2: string
+  city: string
+  state: string
+  zip_code: string
+  country: string
+  sh_adress: string | undefined
+  fcut_device: string | undefined
+  identify: string | undefined
+  quantity: string | undefined
+}
+
+export const BillingForm: React.FC<IBillingForm> = ({
+  adress1,
+  adress2,
+  city,
+  state,
+  zip_code,
+  country,
+  sh_adress,
+  fcut_device,
+  identify,
+  quantity
+}) => {
+  const { t } = useTranslation()
   return (
     <FormContainer>
       <Container>
         <Space direction="vertical" size="small">
-          <Title>Billing Adress:</Title>
+          <Title>{t('Billing Adress')}</Title>
           <Form.Item
             style={{ width: '28rem' }}
-            name="primary_billing_adress"
+            name={adress1}
             rules={[
               {
                 required: true,
-                message: 'Enter your billing address'
+                message: t('Adress 1 Alert')
               }
             ]}
           >
-            <Input placeholder="Adress Line 1" />
+            <Input placeholder={t('Adress Line 1')} required />
           </Form.Item>
           <Form.Item
-            name="second_billing_adress"
+            name={adress2}
             rules={[
               {
                 required: true,
-                message: 'Enter your billing address complement'
+                message: t('Adress 2 Alert')
               }
             ]}
           >
-            <Input placeholder="Adress Line 2" />
+            <Input placeholder={t('Adress Line 2')} required />
           </Form.Item>
           <Space direction="horizontal">
             <Form.Item
               style={{ width: '9rem' }}
-              name="billing_city"
+              name={city}
               rules={[
                 {
                   required: true,
-                  message: 'Enter your city'
+                  message: t('City Alert')
                 }
               ]}
             >
-              <Select placeholder="City">
-                {city.map((ct) => (
-                  <Select.Option key={ct.id} value={ct.value}>
-                    {ct.label}
-                  </Select.Option>
-                ))}
-              </Select>
+              <Input placeholder={t('City')} required />
             </Form.Item>
             <Form.Item
               style={{ width: '9rem' }}
-              name="billing_state"
+              name={state}
               rules={[
                 {
                   required: true,
-                  message: 'Enter your state'
+                  message: t('State Alert')
                 }
               ]}
             >
-              <Select placeholder="State">
-                {countries.map((country) => (
-                  <Select.Option key={country.id} value={country.value}>
-                    {country.label}
-                  </Select.Option>
-                ))}
-              </Select>
+              <Input placeholder={t('State')} required />
             </Form.Item>
             <Form.Item
-              name="billing_zip_code"
+              name={zip_code}
               style={{ width: '9rem' }}
               rules={[
                 {
                   required: true,
-                  message: 'Enter your zip code'
+                  message: t('ZIP Code Alert')
                 }
               ]}
             >
-              <Input placeholder="ZIP Code" />
+              <Input placeholder={t('ZIP Code')} required />
             </Form.Item>
           </Space>
 
-          <Form.Item name="same_shipping_adress" valuePropName="checked">
-            <Checkbox>Use shipping address as same as billing address</Checkbox>
+          <Form.Item name={sh_adress} valuePropName="checked">
+            <Checkbox>{t('Same Address')}</Checkbox>
           </Form.Item>
         </Space>
       </Container>
 
       <Container>
         <Space direction="vertical" style={{ width: '30rem' }}>
-          <Title>Check the boxes below:</Title>
-          <Form.Item name="fcut_device" valuePropName="checked">
-            <Checkbox>
-              Does any veihicle need to be equiped with a fuel cut off device?
-            </Checkbox>
+          <Title>{t('Check Box')}</Title>
+          <Form.Item name={fcut_device} valuePropName="checked">
+            <Checkbox>{t('Fuel Cut Device')}</Checkbox>
           </Form.Item>
           <Form.Item name="other_installed_trackers" valuePropName="checked">
-            <Checkbox>
-              Will any trackers to be installed on a bike, truck or machinery?
-            </Checkbox>
+            <Checkbox>{t('Installed Trackers')}</Checkbox>
           </Form.Item>
 
-          <Form.Item name="identify_fleet_drivers" valuePropName="checked">
-            <Checkbox>Will you need to identify the fleet drivers?</Checkbox>
+          <Form.Item name={identify} valuePropName="checked">
+            <Checkbox>{t('Fleet Drivers')}</Checkbox>
           </Form.Item>
           <Form.Item
-            name="tracker_quantity"
-            rules={[{ required: true, message: 'How many trackers?' }]}
+            name={quantity}
+            rules={[{ required: true, message: t('HMT Alert') }]}
           >
             <PurchaseInput
-              placeholder="How many trackers would you like to purchase?"
+              placeholder={t('How Many Trackers')}
               type="number"
+              required
             />
           </Form.Item>
-
           <SubmitButton type="primary" htmlType="submit">
-            Order Now
+            {t('submit_button')}
           </SubmitButton>
         </Space>
       </Container>
