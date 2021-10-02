@@ -1,9 +1,9 @@
-import React from 'react'
-import { FormContainer, ContactInput, Title, Container } from './styles'
+import React, { InputHTMLAttributes, useCallback } from 'react'
+import { FormContainer, Title, Container } from './styles'
 import { Select, Space, Form, Input } from 'antd'
 import { useTranslation } from 'react-i18next'
 import { IContactForm } from '../../interfaces/ContactForm'
-
+import MaskedInput from 'react-input-mask'
 export const ContactForm: React.FC<IContactForm> = ({
   name,
   last_name,
@@ -18,39 +18,53 @@ export const ContactForm: React.FC<IContactForm> = ({
   state
 }) => {
   const { t, i18n } = useTranslation()
+  const region = [
+    {
+      id: Math.random(),
+      value: '+55',
+      country: t('Brazil'),
+      label: 'br'
+    },
+    {
+      id: Math.random(),
+      value: '+1',
+      country: t('United States'),
+      label: 'us'
+    }
+  ]
   return (
     <FormContainer>
       <Container>
         <Title>{t('Contact Information')}</Title>
         <Space direction="horizontal">
           <Form.Item
+            style={{ width: '14rem' }}
             name={name}
             rules={[{ required: true, message: t('First Name Alert') }]}
           >
-            <ContactInput placeholder={t('First Name')} required />
+            <Input placeholder={t('First Name')} required allowClear />
           </Form.Item>
 
           <Form.Item
+            style={{ width: '14rem' }}
             name={last_name}
             rules={[{ required: true, message: t('Last Name Alert') }]}
           >
-            <ContactInput placeholder={t('Last Name')} required />
+            <Input placeholder={t('Last Name')} required allowClear />
           </Form.Item>
         </Space>
 
         <Space direction="horizontal">
           <Form.Item
+            style={{ width: '14rem' }}
             name={email}
             rules={[{ required: true, message: t('Email Alert') }]}
           >
-            <ContactInput
-              placeholder={t('Email Adress')}
-              type="text"
-              required
-            />
+            <Input placeholder={t('Email Adress')} type="email" required />
           </Form.Item>
 
           <Form.Item
+            style={{ width: '14rem' }}
             name={phone}
             rules={[
               {
@@ -59,7 +73,11 @@ export const ContactForm: React.FC<IContactForm> = ({
               }
             ]}
           >
-            <ContactInput placeholder={t('Phone Number')} />
+            <MaskedInput
+              className="ant-input"
+              placeholder={t('Phone Number')}
+              mask={t('Phone Mask')}
+            />
           </Form.Item>
         </Space>
 
@@ -73,8 +91,8 @@ export const ContactForm: React.FC<IContactForm> = ({
               placeholder={t('Language')}
               onChange={(value: string) => i18n.changeLanguage(value)}
             >
-              <Select.Option value="pt">Português</Select.Option>
-              <Select.Option value="en">English</Select.Option>
+              <Select.Option value="pt">{t('Portuguese')}</Select.Option>
+              <Select.Option value="en">{t('English')}</Select.Option>
             </Select>
           </Form.Item>
 
@@ -83,7 +101,10 @@ export const ContactForm: React.FC<IContactForm> = ({
             name={country}
             rules={[{ required: true, message: t('Country Alert') }]}
           >
-            <Input placeholder={t('Country')} required />
+            <Select>
+              <Select.Option value="br">{t('Brazil')}</Select.Option>
+              <Select.Option value="us">{t('United States')}</Select.Option>
+            </Select>
           </Form.Item>
         </Space>
       </Container>
@@ -135,7 +156,12 @@ export const ContactForm: React.FC<IContactForm> = ({
                 }
               ]}
             >
-              <Input placeholder={t('ZIP Code')} required />
+              <MaskedInput
+                mask={t('ZIP Mask')}
+                className="ant-input"
+                placeholder={t('ZIP Code')}
+                required
+              />
             </Form.Item>
           </Space>
         </Space>

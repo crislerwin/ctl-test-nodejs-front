@@ -1,52 +1,5 @@
 {
   "subscription": [
-    {
-      "other_installed_trackers": false,
-      "first_name": "eweewe",
-      "last_name": "wewe",
-      "email": "ewe",
-      "phone_number": "ewe",
-      "language": "pt",
-      "country": "Brasil",
-      "first_adress": "321323",
-      "second_adress": "3232",
-      "city": "wewe",
-      "state": "wewe",
-      "zip_code": "ewew",
-      "primary_billing_adress": "ewewe",
-      "second_billing_adress": "we",
-      "billing_city": "w323",
-      "billing_state": "wew",
-      "billing_zip_code": "3131",
-      "same_shipping_adress": false,
-      "fcut_device": false,
-      "identify_fleet_drivers": false,
-      "tracker_quantity": "2",
-      "id": 1
-    },
-    {
-      "other_installed_trackers": false,
-      "first_name": "eweewe",
-      "last_name": "wewe",
-      "email": "ewe",
-      "phone_number": "ewe",
-      "language": "pt",
-      "country": "Brasil",
-      "first_adress": "321323",
-      "second_adress": "3232",
-      "city": "wewe",
-      "state": "wewe",
-      "zip_code": "ewew",
-      "primary_billing_adress": "ewewe",
-      "second_billing_adress": "we",
-      "billing_city": "w323",
-      "billing_state": "wew",
-      "billing_zip_code": "3131",
-      "same_shipping_adress": true,
-      "fcut_device": false,
-      "identify_fleet_drivers": false,
-      "tracker_quantity": "2",
-      "id": 2
-    }
+   
   ]
 }

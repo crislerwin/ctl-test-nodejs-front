@@ -9,7 +9,7 @@ import {
   PurchaseInput
 } from './styles'
 import { IBillingForm } from '../../interfaces/BillingForm'
-
+import MaskedInput from 'react-input-mask'
 export const BillingForm: React.FC<IBillingForm> = ({
   adress1,
   adress2,
@@ -41,6 +41,7 @@ export const BillingForm: React.FC<IBillingForm> = ({
             <Input placeholder={t('Adress Line 1')} required />
           </Form.Item>
           <Form.Item
+            style={{ width: '28rem' }}
             name={adress2}
             rules={[
               {
@@ -49,7 +50,7 @@ export const BillingForm: React.FC<IBillingForm> = ({
               }
             ]}
           >
-            <Input placeholder={t('Adress Line 2')} required />
+            <Input placeholder={t('Adress Line 2')} required type="text" />
           </Form.Item>
           <Space direction="horizontal">
             <Form.Item
@@ -62,7 +63,7 @@ export const BillingForm: React.FC<IBillingForm> = ({
                 }
               ]}
             >
-              <Input placeholder={t('City')} required />
+              <Input placeholder={t('City')} required type="text" />
             </Form.Item>
             <Form.Item
               style={{ width: '9rem' }}
@@ -86,7 +87,7 @@ export const BillingForm: React.FC<IBillingForm> = ({
                 }
               ]}
             >
-              <Input placeholder={t('ZIP Code')} required />
+              <MaskedInput mask={t('ZIP Mask')} className="ant-input" placeholder={t('ZIP Code')} required />
             </Form.Item>
           </Space>
 
@@ -120,7 +121,7 @@ export const BillingForm: React.FC<IBillingForm> = ({
             />
           </Form.Item>
           <SubmitButton type="primary" htmlType="submit">
-            {t('submit_button')}
+            {t('Submit Button')}
           </SubmitButton>
         </Space>
       </Container>

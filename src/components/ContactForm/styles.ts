@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Input, Select } from 'antd'
+import InputMask from 'react-input-mask'
 
 const FormContainer = styled.div`
   display: flex;
