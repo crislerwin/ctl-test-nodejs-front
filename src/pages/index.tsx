@@ -5,11 +5,13 @@ import { BillingForm } from '../components/BillingForm'
 import { PageHeader } from 'antd'
 import { HeaderLogo } from '../components/HeaderLogo'
 import { IFormData } from '../interfaces/FormData'
-
+import { useTranslation} from 'react-i18next'
 const Home: React.FC = () => {
+  const { t } = useTranslation()
   const onFinish = (values: IFormData) => {
     api.post('/subscription', values).then(() => {
       console.log('Success!', values)
+      window.alert(`${values.first_name} ${values.last_name} ${t('Post Alert')}`)
     })
   }
 

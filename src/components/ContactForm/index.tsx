@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useCallback } from 'react'
+import React, { useState } from 'react'
 import { FormContainer, Title, Container } from './styles'
 import { Select, Space, Form, Input } from 'antd'
 import { useTranslation } from 'react-i18next'
@@ -18,20 +18,11 @@ export const ContactForm: React.FC<IContactForm> = ({
   state
 }) => {
   const { t, i18n } = useTranslation()
-  const region = [
-    {
-      id: Math.random(),
-      value: '+55',
-      country: t('Brazil'),
-      label: 'br'
-    },
-    {
-      id: Math.random(),
-      value: '+1',
-      country: t('United States'),
-      label: 'us'
-    }
-  ]
+  const [code, setCode] = useState('')
+  const changeCodeMask = (value: string) => {
+    value === 'EUA' ? setCode('+1 999 9999 999') : setCode('+55 99 9999 9999')
+  }
+
   return (
     <FormContainer>
       <Container>
@@ -76,7 +67,7 @@ export const ContactForm: React.FC<IContactForm> = ({
             <MaskedInput
               className="ant-input"
               placeholder={t('Phone Number')}
-              mask={t('Phone Mask')}
+              mask={code}
             />
           </Form.Item>
         </Space>
@@ -101,9 +92,9 @@ export const ContactForm: React.FC<IContactForm> = ({
             name={country}
             rules={[{ required: true, message: t('Country Alert') }]}
           >
-            <Select>
-              <Select.Option value="br">{t('Brazil')}</Select.Option>
-              <Select.Option value="us">{t('United States')}</Select.Option>
+            <Select onChange={changeCodeMask}>
+              <Select.Option value="BR">{t('Brazil')}</Select.Option>
+              <Select.Option value="EUA">{t('United States')}</Select.Option>
             </Select>
           </Form.Item>
         </Space>

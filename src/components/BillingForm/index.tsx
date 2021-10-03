@@ -117,6 +117,8 @@ export const BillingForm: React.FC<IBillingForm> = ({
             <PurchaseInput
               placeholder={t('How Many Trackers')}
               type="number"
+              minLength={1}
+              maxLength={99}
               required
             />
           </Form.Item>
